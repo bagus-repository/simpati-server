@@ -1,0 +1,16 @@
+.sidebar-nav {
+    overscroll-behavior: none;
+}
+
+.alert-success {
+    background-color: #40ec7c;
+}
+
+.alert-danger {
+    background-color: #fbc1bf;
+}
+
+.btn-xs, .btn-group-xs > .btn {
+    padding: 0.125rem 0.25rem;
+    font-size: 0.7rem;
+}
