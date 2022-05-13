@@ -14,8 +14,8 @@ class CreateLookupsTable extends Migration
     public function up()
     {
         Schema::create('lookups', function (Blueprint $table) {
-            $table->string('category_id', 10);
-            $table->string('lookup_id', 10)->primary();
+            $table->string('category_id', 20);
+            $table->string('lookup_id', 30)->primary();
             $table->string('lookup_value');
             $table->string('lookup_desc');
             $table->tinyInteger('sts')->default(1);

@@ -35,7 +35,12 @@
             <li class="nav-item nav-dropdown">
                 <a class="nav-link{{ request()->is('outboxes*') ? ' active':'' }}" href="{{ route('outboxes.index') }}">
                     <i class="nav-icon icon-puzzle"></i> Surat Keluar</a>
+                </li>
+            <li class="nav-title">E-filling</li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link{{ request()->is('e-filling*') ? ' active':'' }}" href="{{ route('efilling.index') }}">
+                    <i class="nav-icon icon-puzzle"></i> Permohonan</a>
             </li>
-        </ul>
+            </ul>
     </nav>
 </div>

@@ -49,7 +49,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/dispose/{dispose}/destroy', 'InboxController@dispose_destroy')->name('inboxes.dispose.destroy');
     });
     Route::resource('outboxes', 'OutboxController');
-    Route::prefix('efilling')->group(function () {
+    Route::prefix('e-filling')->group(function () {
         Route::get('/', 'EfillingController@index')->name('efilling.index');
+        Route::post('/approval', 'EfillingController@approval')->name('efilling.approval');
     });
 });

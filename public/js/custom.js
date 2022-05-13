@@ -41,3 +41,21 @@ $('.input-counter').on('input', function(){
         $(this).next().text((maxlength - currentLength)+' karakter lagi');
     }
 });
+
+function reInitInputCounter() {
+    $('.input-counter').each(function(){
+        var maxlength = $(this).attr("maxlength");
+        var currentLength = $(this).val().length;
+        if (maxlength) {
+            $(this).next().html('');
+            $(this).after('<small class="text-muted text-counter d-flex justify-content-end">'+(maxlength-currentLength)+' karakter lagi<small>');
+        }
+    });
+    $('.input-counter').on('input', function(){
+        var maxlength = $(this).attr("maxlength");
+        var currentLength = $(this).val().length;
+        if (maxlength) {
+            $(this).next().text((maxlength - currentLength)+' karakter lagi');
+        }
+    });
+}

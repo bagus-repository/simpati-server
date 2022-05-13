@@ -6,8 +6,9 @@
         <div class="card-group">
             <div class="card p-4">
                 <div class="card-body">
+                    <div class="text-right"><img src="{{ asset('img/simpati-logo.png') }}" alt="" height="75px"></div>
                     <h1>Login</h1>
-                    <p class="text-muted">Sign In to your account</p>
+                    <p class="text-muted">Login ke akun anda</p>
                     @include('layouts.partials.alert')
                     <form class="spinner-form" action="{{ route('auth.do_login') }}" method="POST">
                         @csrf
