@@ -20,4 +20,9 @@ class HomeController extends Controller
         ];
         return view('dashboard', compact('counter'));
     }
+
+    public function redirect()
+    {
+        return redirect()->route('home.index');
+    }
 }
