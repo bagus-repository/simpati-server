@@ -9,15 +9,18 @@
             @include('layouts.partials.alert')
             <div class="card">
                 <div class="card-body">
+                    <div class="text-right">
+                        <span class="required-label">*</span> wajib
+                    </div>
                     <form action="{{ route('classifies.update', $classify->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label for="">Nama</label>
+                            <label for="">Nama <span class="required-label">*</span></label>
                             <input type="text" class="form-control" name="nama" value="{{ $classify->nama }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="">Jabatan</label>
+                            <label for="">Jabatan <span class="required-label">*</span></label>
                             <input type="text" class="form-control" name="jabatan" value="{{ $classify->jabatan }}" required>
                         </div>
                         <div class="form-group">

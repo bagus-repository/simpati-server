@@ -9,12 +9,15 @@
             @include('layouts.partials.alert')
             <div class="card">
                 <div class="card-body">
+                    <div class="text-right">
+                        <span class="required-label">*</span> wajib
+                    </div>
                     <form action="{{ route('inboxes.dispose.store', $inbox) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-10">
                                 <div class="form-group">
-                                    <label for="">Kepada</label>
+                                    <label for="">Kepada <span class="required-label">*</span></label>
                                     <select name="classifies_id" class="form-control" required>
                                         @foreach ($classifies as $item)
                                             <option value="{{ $item->id }}">{{ $item->nama . " ($item->jabatan)" }}</option>
@@ -22,11 +25,11 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Batas Waktu</label>
+                                    <label for="">Batas Waktu <span class="required-label">*</span></label>
                                     <input type="text" class="form-control datepicker" name="batas_waktu" required autocomplete="off">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Ringkasan</label>
+                                    <label for="">Ringkasan <span class="required-label">*</span></label>
                                     <textarea class="form-control" rows="3" name="ringkasan" maxlength="1000" required></textarea>
                                 </div>
                                 <div class="form-group">

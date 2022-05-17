@@ -9,23 +9,26 @@
             @include('layouts.partials.alert')
             <div class="card">
                 <div class="card-body">
+                    <div class="text-right">
+                        <span class="required-label">*</span> wajib
+                    </div>
                     <form action="{{ route('users.update', $user->id) }}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label for="">Name</label>
+                            <label for="">Name <span class="required-label">*</span></label>
                             <input type="text" class="form-control" name="name" required value="{{ $user->name }}">
                         </div>
                         <div class="form-group">
-                            <label for="">Email</label>
+                            <label for="">Email <span class="required-label">*</span></label>
                             <input type="email" class="form-control" name="email" value="{{ $user->email }}" required disabled>
                         </div>
                         <div class="form-group">
-                            <label for="">Password</label>
+                            <label for="">Password <span class="required-label">*</span></label>
                             <input type="password" class="form-control" name="password">
                             <small class="form-text text-muted">Password must be 6 or more characters</small>
                         </div>
                         <div class="form-group">
-                            <label for="">Role</label>
+                            <label for="">Role <span class="required-label">*</span></label>
                             <select name="role" id="" class="form-control">
                                 <option value="admin">Admin</option>
                                 <option value="user">User</option>

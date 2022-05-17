@@ -9,35 +9,38 @@
             @include('layouts.partials.alert')
             <div class="card">
                 <div class="card-body">
+                    <div class="text-right">
+                        <span class="required-label">*</span> wajib
+                    </div>
                     <form action="{{ route('inboxes.update', $inbox) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Nomor Surat</label>
+                                    <label for="">Nomor Surat <span class="required-label">*</span></label>
                                     <input type="text" class="form-control input-counter" name="nomor" value="{{ $inbox->nomor }}" maxlength="50" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Pengirim</label>
+                                    <label for="">Pengirim <span class="required-label">*</span></label>
                                     <input type="text" class="form-control input-counter" name="pengirim" value="{{ $inbox->pengirim }}" maxlength="200" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Penerima</label>
+                                    <label for="">Penerima <span class="required-label">*</span></label>
                                     <input type="text" class="form-control input-counter" name="penerima" value="{{ $inbox->penerima }}" maxlength="200" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Ringkasan</label>
+                                    <label for="">Ringkasan <span class="required-label">*</span></label>
                                     <textarea class="form-control input-counter" rows="3" name="ringkasan" maxlength="1000" required>{{ $inbox->ringkasan }}</textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Tgl Surat</label>
+                                    <label for="">Tgl Surat <span class="required-label">*</span></label>
                                     <input type="text" class="form-control datepicker" name="tgl_surat" value="{{ $inbox->tgl_surat }}" required autocomplete="off">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Tgl Diterima</label>
+                                    <label for="">Tgl Diterima <span class="required-label">*</span></label>
                                     <input type="text" class="form-control datepicker" name="tgl_diterima" value="{{ $inbox->tgl_diterima }}" required autocomplete="off">
                                 </div>
                                 <div class="form-group">
@@ -45,7 +48,7 @@
                                     <textarea name="keterangan" rows="3" class="form-control input-counter">{{ $inbox->keterangan }}</textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Upload File</label>
+                                    <label for="">Upload File <span class="required-label">*</span></label>
                                     @if ($inbox->file)
                                         <br>
                                         <a href="{{ asset('inbox/' . $inbox->file) }}" class="btn btn-sm btn-primary mb-2"><i class="fa fa-download"></i> Download</a>

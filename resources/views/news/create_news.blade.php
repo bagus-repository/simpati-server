@@ -9,18 +9,21 @@
             @include('layouts.partials.alert')
             <div class="card">
                 <div class="card-body">
+                    <div class="text-right">
+                        <span class="required-label">*</span> wajib
+                    </div>
                     <form action="{{ route('news.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="">Judul</label>
+                            <label for="">Judul <span class="required-label">*</span></label>
                             <input type="text" class="form-control input-counter" name="title" maxlength="200" required>
                         </div>
                         <div class="form-group">
-                            <label for="">Deskripsi</label>
+                            <label for="">Deskripsi <span class="required-label">*</span></label>
                             <textarea name="desc" rows="3" class="form-control html-editor"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="">Thumbnail</label>
+                            <label for="">Thumbnail <span class="required-label">*</span></label>
                             <input type="file" name="thumbnail" class="form-control" accept=".jpg" required>
                             <span class="text-muted">Format : .jpg Maks. 512Kb</span>
                         </div>

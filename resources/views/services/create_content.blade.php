@@ -9,15 +9,18 @@
             @include('layouts.partials.alert')
             <div class="card">
                 <div class="card-body">
+                    <div class="text-right">
+                        <span class="required-label">*</span> wajib
+                    </div>
                     <form action="{{ route('services.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="type" value="{{ $type->lookup_value }}">
                         <div class="form-group">
-                            <label for="">Nama Pelayanan</label>
+                            <label for="">Nama Pelayanan <span class="required-label">*</span></label>
                             <input type="text" class="form-control" name="name" value="{{ $type->lookup_desc }}" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="">Isi Konten</label>
+                            <label for="">Isi Konten <span class="required-label">*</span></label>
                             <textarea name="content" rows="3" class="form-control html-editor"></textarea>
                         </div>
                         <div class="form-group">
