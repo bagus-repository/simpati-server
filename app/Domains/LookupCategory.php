@@ -8,4 +8,5 @@ class LookupCategory
     const CONTENT = 'L_CTN_TYPE';
     const FILLING = 'L_FILL';
     const FILTER_STATUS = 'L_FILTER_STS';
+    const VERSION = 'L_VERSION';
 }

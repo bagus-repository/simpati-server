@@ -4,6 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Models\User;
 use App\Domains\APIResponse;
+use App\Domains\LookupCategory;
+use App\Models\LookupModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -66,6 +68,17 @@ class APIAuthController
             'password' => $request->password,
         ];
 
+        return response()->json($rsp);
+    }
+
+    public function getVersion()
+    {
+        $versions = LookupModel::getCategoryById(LookupCategory::VERSION)->get();
+        $rsp = new APIResponse();
+        $rsp->data = [
+            'min_android' => $versions->firstWhere('lookup_value', 'min_android')->lookup_desc ?? '1',
+            'cur_android' => $versions->firstWhere('lookup_value', 'cur_android')->lookup_desc ?? '1',
+        ];
         return response()->json($rsp);
     }
 }

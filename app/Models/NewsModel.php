@@ -24,6 +24,13 @@ class NewsModel extends Model
     protected $guarded = ['id'];
 
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['thumbnail'];
+
+    /**
      * Scope a query to only include active
      *
      * @param  \Illuminate\Database\Eloquent\Builder $query
@@ -43,6 +50,17 @@ class NewsModel extends Model
     public function scopeDeactivate($query, $id)
     {
         return $query->where('id', $id)->update(['sts' => 0]);
+    }
+
+    /**
+     * Get the Thumbnail Attribute
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getThumbnailAttribute($value)
+    {
+        return asset('uploads/' . $this->image_url);
     }
 
     public function user()

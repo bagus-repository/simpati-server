@@ -18,6 +18,7 @@ Route::namespace('App\Http\Controllers\API')->group(function () {
     Route::prefix('auth')->group(function () {
         Route::post('/login', 'APIAuthController@login');
         Route::post('/register', 'APIAuthController@register');
+        Route::get('/getVersion', 'APIAuthController@getVersion');
     });
 
     Route::middleware('auth:sanctum')->group(function () {
@@ -25,6 +26,10 @@ Route::namespace('App\Http\Controllers\API')->group(function () {
             Route::get('/GetServiceList', 'APIEfillingController@GetServiceList');
             Route::post('/SubmitEfilling', 'APIEfillingController@SubmitEfilling');
             Route::get('/GetPermohonan', 'APIEfillingController@GetPermohonan');
+        });
+
+        Route::prefix('news')->group(function () {
+            Route::get('/list', 'APINewsController@GetNews');
         });
     });
 });
