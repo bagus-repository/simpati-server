@@ -78,6 +78,7 @@ class APIAuthController
         $rsp->data = [
             'min_android' => $versions->firstWhere('lookup_value', 'min_android')->lookup_desc ?? '1',
             'cur_android' => $versions->firstWhere('lookup_value', 'cur_android')->lookup_desc ?? '1',
+            'store_url' => $versions->firstWhere('lookup_value', 'store_url')->lookup_desc ?? '',
         ];
         return response()->json($rsp);
     }
