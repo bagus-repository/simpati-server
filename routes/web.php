@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('services', 'ServiceController');
     Route::resource('classifies', 'ClassifyController');
     Route::resource('inboxes', 'InboxController');
+    Route::resource('sliders', 'SliderController');
     Route::prefix('inboxes')->group(function () {
         Route::get('/{inbox}/dispose', 'InboxController@dispose')->name('inboxes.dispose');
         Route::get('/{inbox}/dispose/create', 'InboxController@dispose_create')->name('inboxes.dispose.create');

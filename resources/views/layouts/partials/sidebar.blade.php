@@ -27,6 +27,10 @@
                 <a class="nav-link{{ request()->is('classifies*') ? ' active':'' }}" href="{{ route('classifies.index') }}">
                     <i class="nav-icon icon-puzzle"></i> Atur Klasifikasi</a>
             </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link{{ request()->is('sliders*') ? ' active':'' }}" href="{{ route('sliders.index') }}">
+                    <i class="nav-icon icon-puzzle"></i> Atur Slider Apps</a>
+            </li>
             <li class="nav-title">Transaksi</li>
             <li class="nav-item nav-dropdown">
                 <a class="nav-link{{ request()->is('inboxes*') ? ' active':'' }}" href="{{ route('inboxes.index') }}">

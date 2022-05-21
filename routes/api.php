@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::namespace('App\Http\Controllers\API')->group(function () {
+    Route::get('/getSliders', 'APISliderController@getSliders');
     Route::prefix('auth')->group(function () {
         Route::post('/login', 'APIAuthController@login');
         Route::post('/register', 'APIAuthController@register');
