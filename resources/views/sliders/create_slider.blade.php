@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="animated fadeIn">
-    <a href="{{ route('sliders.index') }}" class="btn btn-primary btn-xs"><i class="fa fa-chevron-left"></i> Kembali ke list</a>
+    <a href="{{ route('slide.index') }}" class="btn btn-primary btn-xs"><i class="fa fa-chevron-left"></i> Kembali ke list</a>
     <h3 class="mb-2">Tambah Slider</h3>
     <div class="row">
         <div class="col-md-10">
@@ -12,7 +12,7 @@
                     <div class="text-right">
                         <span class="required-label">*</span> wajib
                     </div>
-                    <form action="{{ route('sliders.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('slide.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="">Judul <span class="required-label">*</span></label>

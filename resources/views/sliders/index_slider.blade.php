@@ -8,7 +8,7 @@
             @include('layouts.partials.alert')
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('sliders.create') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah Slider</a>
+                    <a href="{{ route('slide.create') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah Slider</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -30,12 +30,12 @@
                                         <img src="{{ asset('sliders/' . $item->file) }}" alt="Thumbnail" srcset="" width="100">
                                     </td>
                                     <td>
-                                        <form action="{{ route('sliders.update', $slider->id) }}" method="post" id="sliders-update-{{ $slider->id }}">
+                                        <form action="{{ route('slide.update', $slider->id) }}" method="post" id="sliders-update-{{ $slider->id }}">
                                             @csrf
                                             <input type="hidden" name="sts" value="{{ $slider->sts ? '1':'0' }}">
                                             <button type="submit" class="btn btn-{{ $slider->sts ? 'danger':'success' }} btn-xs">{{ $slider->sts ? 'Non-aktif':'Aktifkan' }}</button>
                                         </form>
-                                        <form action="{{ route('sliders.delete', $slider->id) }}" method="post" id="delete-{{ $slider->id }}" onsubmit="return confirm('Anda yakin ?')">
+                                        <form action="{{ route('slide.delete', $slider->id) }}" method="post" id="delete-{{ $slider->id }}" onsubmit="return confirm('Anda yakin ?')">
                                             @csrf
                                             <button type="submit" class="btn btn-danger btn-xs">Hapus</button>
                                         </form>

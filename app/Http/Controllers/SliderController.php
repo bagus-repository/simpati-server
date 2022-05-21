@@ -58,7 +58,7 @@ class SliderController extends Controller
                 'sts' => 1
             ]);
             DB::commit();
-            return redirect()->route('sliders.index')->with('success', 'Berhasil menambahkan slider');
+            return redirect()->route('slide.index')->with('success', 'Berhasil menambahkan slider');
         } catch (\Exception $ex) {
             if (file_exists($filesave)) {
                 unlink($filesave);
