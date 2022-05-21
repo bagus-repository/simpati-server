@@ -22,6 +22,9 @@ Route::namespace('App\Http\Controllers\API')->group(function () {
     });
 
     Route::middleware('auth:sanctum')->group(function () {
+        Route::prefix('auth')->group(function(){
+            Route::get('/getUser', 'APIAuthController@getUser');
+        });
         Route::prefix('efilling')->group(function () {
             Route::get('/GetServiceList', 'APIEfillingController@GetServiceList');
             Route::post('/SubmitEfilling', 'APIEfillingController@SubmitEfilling');

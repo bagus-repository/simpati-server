@@ -82,4 +82,9 @@ class APIAuthController
         ];
         return response()->json($rsp);
     }
+
+    public function getUser()
+    {
+        return response()->json(auth()->user());
+    }
 }
