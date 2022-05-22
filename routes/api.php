@@ -21,8 +21,10 @@ Route::namespace('App\Http\Controllers\API')->group(function () {
         Route::post('/register', 'APIAuthController@register');
         Route::get('/getVersion', 'APIAuthController@getVersion');
     });
-
+    
     Route::middleware('auth:sanctum')->group(function () {
+        Route::get('/getContents', 'APIContentController@getContents');
+        
         Route::prefix('auth')->group(function(){
             Route::get('/getUser', 'APIAuthController@getUser');
         });
