@@ -15,8 +15,8 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::active()->orderBy('updated_at', 'desc')->get();
-        return view('sliders.index_slider', compact('sliders'));
+        $slides = Slider::orderBy('updated_at', 'desc')->get();
+        return view('sliders.index_slider', compact('slides'));
     }
 
     /**
@@ -71,10 +71,10 @@ class SliderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\Slider  $slide
      * @return \Illuminate\Http\Response
      */
-    public function show(Slider $slider)
+    public function show(Slider $slide)
     {
         //
     }
@@ -82,10 +82,10 @@ class SliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\Slider  $slide
      * @return \Illuminate\Http\Response
      */
-    public function edit(Slider $slider)
+    public function edit(Slider $slide)
     {
         //
     }
@@ -94,13 +94,13 @@ class SliderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\Slider  $slide
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Slider $slider)
+    public function update(Request $request, Slider $slide)
     {
         $request->validate(['sts' => 'required']);
-        $slider->update([
+        $slide->update([
             'sts' => $request->sts
         ]);
 
@@ -110,16 +110,16 @@ class SliderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\Slider  $slide
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Slider $slider)
+    public function destroy(Slider $slide)
     {
-        $filePath = public_path() . '/sliders/' . $slider->file;
+        $filePath = public_path() . '/sliders/' . $slide->file;
         if (file_exists($filePath)) {
             unlink($filePath);
         }
-        $slider->delete();
+        $slide->delete();
 
         return back()->with('success', 'Berhasil hapus slider');
     }

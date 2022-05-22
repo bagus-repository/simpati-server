@@ -34,12 +34,12 @@ class Slider extends Model
     }
 
     /**
-     * Scope a query to only include FileLink
+     * Get the File Link
      *
-     * @param  \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param  string  $value
+     * @return string
      */
-    public function scopeFileLink($query)
+    public function getFileLinkAttribute($value)
     {
         return asset('sliders/' . $this->file);
     }

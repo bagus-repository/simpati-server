@@ -22,22 +22,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($sliders as $slider)
+                                @foreach ($slides as $slide)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $slider->judul }}</td>
+                                    <td>{{ $slide->judul }}</td>
                                     <td>
-                                        <img src="{{ asset('sliders/' . $item->file) }}" alt="Thumbnail" srcset="" width="100">
+                                        <img src="{{ $slide->file_link }}" alt="Thumbnail" srcset="" width="100">
                                     </td>
                                     <td>
-                                        <form action="{{ route('slide.update', $slider->id) }}" method="post" id="sliders-update-{{ $slider->id }}">
+                                        <form action="{{ route('slide.update', $slide) }}" method="post" id="sliders-update-{{ $slide->id }}">
                                             @csrf
-                                            <input type="hidden" name="sts" value="{{ $slider->sts ? '1':'0' }}">
-                                            <button type="submit" class="btn btn-{{ $slider->sts ? 'danger':'success' }} btn-xs">{{ $slider->sts ? 'Non-aktif':'Aktifkan' }}</button>
+                                            @method('PUT')
+                                            <input type="hidden" name="sts" value="{{ $slide->sts ? '0':'1' }}">
+                                            <button type="submit" class="btn btn-{{ $slide->sts ? 'danger':'success' }} btn-xs">{{ $slide->sts ? 'Non-aktif':'Aktifkan' }}</button>
                                         </form>
-                                        <form action="{{ route('slide.delete', $slider->id) }}" method="post" id="delete-{{ $slider->id }}" onsubmit="return confirm('Anda yakin ?')">
+                                        <form action="{{ route('slide.destroy', $slide) }}" method="post" id="delete-{{ $slide->id }}" onsubmit="return confirm('Anda yakin ?')">
                                             @csrf
-                                            <button type="submit" class="btn btn-danger btn-xs">Hapus</button>
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-xs" data-btn="NC">Hapus</button>
                                         </form>
                                     </td>
                                 </tr>
