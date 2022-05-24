@@ -19,6 +19,7 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 });
 
 Route::get('/', 'HomeController@redirect');
+Route::get('/kebijakan-privasi', 'HomeController@kebijakan');
 
 Route::prefix('auth')->group(function () {
     Route::get('login', 'AuthController@login_form')->name('auth.login_form');

@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return redirect()->route('home.index');
     }
+
+    public function kebijakan()
+    {
+        return view('kebijakan');
+    }
 }
