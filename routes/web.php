@@ -29,6 +29,7 @@ Route::prefix('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', 'HomeController@index')->name('home.index');
+    Route::resource('roles', 'RolesController');
     Route::prefix('users')->group(function () {
         Route::get('/', 'UserController@index')->name('users.index');
         Route::get('/create', 'UserController@create')->name('users.create');

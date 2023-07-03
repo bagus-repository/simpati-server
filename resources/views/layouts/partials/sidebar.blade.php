@@ -8,6 +8,10 @@
             </li>
             <li class="nav-title">Master Data</li>
             <li class="nav-item nav-dropdown">
+                <a class="nav-link{{ request()->is('roles*') ? ' active':'' }}" href="{{ route('roles.index') }}">
+                    <i class="nav-icon icon-puzzle"></i> List Roles</a>
+            </li>
+            <li class="nav-item nav-dropdown">
                 <a class="nav-link{{ request()->is('users*') ? ' active':'' }}" href="{{ route('users.index') }}">
                     <i class="nav-icon icon-puzzle"></i> List User</a>
             </li>
